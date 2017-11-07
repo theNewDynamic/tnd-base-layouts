@@ -7,7 +7,6 @@
 @import 'modules/_svg';
 
 
-
  /*Variables */
 @import '_variables';
 
@@ -15,3 +14,6 @@
 /*@import 'font/_muli-200';
 @import 'font/_muli-400';
 @import 'font/_muli-800';*/
+.bud {
+  color: pink;
+}
