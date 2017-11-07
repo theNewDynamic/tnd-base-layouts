@@ -1,0 +1,34 @@
+{{ define "main" }}
+  <main class="min-vh-100 text-on-primary-color w-100">
+
+    <section class="ph4 ph4-m center pv4 pv5-l w-80-l">
+      {{- partial "books/header.html" . -}}
+
+      <div class="flex-l flex-wrap">
+        <div class="fl pt2-l w-100 w-40-l">
+          {{- partial "books/cover.html" . -}}
+          {{- partial "books/meta-data.html" . -}}
+        </div>
+
+        <div class="mt0-ns mt4 w-100 w-60-l">
+          <div class="bb b--black-20 measure-wide mv4 nested-copy-line-height">
+            {{ .Content }}
+          </div>
+          {{ partial "books/buylinks" (dict "context" . "buylinkClasses" "ba bg-animate black br2 db dib-ns f5 hover-bg-near-black link mb2 mr1 ph3 pv2    hover-white" "textcolor" "black") }}
+        </div>
+      </div>
+
+
+    </section>
+
+
+    <section class="center ph4 ph4-m w-80-l">
+      {{- partial "books/praise.html" (dict "count" 100 "context" . ) -}}
+    </section>
+
+    <div class="tc mv5">
+    {{ partial "books/buylinks" (dict "context" . "buylinkClasses" "ba bg-animate black br2 db dib-ns f5 hover-bg-near-black link mb2 mr1 ph3 pv2    hover-white" "textcolor" "black") }}
+    </div>
+
+  </main>
+{{ end }}
