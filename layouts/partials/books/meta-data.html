@@ -1,6 +1,6 @@
-{{ with .Params.publication_date }}
+{{ with .Params.date }}
   <h5 class="mb2 sans-serif ">
-    Publication Date: {{ . }}
+    Publication Date: {{ .Format "January 2, 2006" }}
   </h5>
 {{ end }}
 {{ with .Params.editions_isbn.hardcover }}
