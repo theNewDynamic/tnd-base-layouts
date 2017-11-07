@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html  lang="{{ $.Site.LanguageCode | default "en" }}" class="no-js">
+  <head>
+    <title>{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}</title>
+    {{- partial "head/meta-and-links.html" . -}}
+    {{- partial "head/additions.html" . -}}
+  </head>
+  <body class="{{ $.Param "styles.body_classes"  | default "bg-near-white sans-serif"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
+    {{ block "header" . }}{{ partial "base/header.html" .}}{{ end }}
+    <div class="content">
+      <main id="main" {{with $.Param "content_classes"}} class="{{.}}"{{end}}role="main">
+        {{ block "hero" . }}{{ end }}
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ block "footer" . }}{{ partial "base/footer.html" . }}{{ end }}
+    </div>
+    {{ block "scripts" . }}{{ partial "base/scripts.html" . }}{{ end }}
+  </body>
+</html>
