@@ -1,4 +1,4 @@
-{{$scripts := readDir  (.Site.Params.styles.js_path | default "/themes/tnd-base-layouts/static/dist/js")}}
+{{$scripts := readDir  (.Site.Params.styles.js_path | default "/layouts-base/tnd-base-layouts/static/dist/js")}}
 {{range $scripts}}
   <script src="{{.Name  | add "/dist/js/"}}" async></script>
 {{end}}

@@ -10,7 +10,7 @@
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 {{ end }}
 
-{{$stylesheet := readDir ( $.Param "dev.css_path" | default "/themes/tnd-base-layouts/static/dist/css")}}
+{{$stylesheet := readDir ( $.Param "dev.css_path" | default "/layouts-base/tnd-base-layouts/static/dist/css")}}
 {{range $stylesheet}}
   <link href='{{.Name  | add "/dist/css/"}}' rel='stylesheet' type="text/css" />
 {{end}}
