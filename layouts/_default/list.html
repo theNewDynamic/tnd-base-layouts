@@ -1,13 +1,27 @@
 {{ define "main" }}
-  <div class="mw8 center">
-    {{ $section := where .Data.Pages "Section" .Section }}
-    <section class="flex-ns flex-wrap justify-around mt5">
-      {{ range  $section }}
-        <div class="relative w-100  mb4 bg-white">
+
+  <div class="mw8 center ph4 pt5">
+
+
+
+    <h1>{{(.Site.GetPage "section" .Section).Title}}</h1>
+
+
+
+    <section class="flex-ns flex-wrap justify-around pt5 min-vh-100">
+
+      {{range .Paginator.Pages}}
+        <div class="relative w-100  mb4">
           {{ partial "summary.html" . }}
         </div>
       {{ end }}
     </section>
+
+
+
   {{ template "_internal/pagination.html" . }}
+
+
+
   </div>
 {{ end }}
