@@ -5,19 +5,19 @@
       {{- partial "books/header.html" . -}}
 
       <div class="flex-l flex-wrap">
-        <div class="fl pt2-l w-100 w-40-l">
+        <div class="fl pt4-l w-100 w-40-l">
           {{- partial "books/cover.html" . -}}
           {{- partial "books/meta-data.html" . -}}
         </div>
 
         <div class="mt0-ns mt4 w-100 w-60-l">
-          <div class="bb b--black-20 measure-wide mv4 nested-copy-line-height">
+          <div class="bb b--black-20 dark-gray measure-wide mv4 nested-copy-line-height">
             {{ .Content }}
           </div>
           {{if .Params.buy_links_external}}
-           {{ partial "books/buylinks-external.html" (dict "context" . "buylinkClasses" "f6 link bg-animate hover-bg-near-black br2 ba ph3 pv2 mr1 mb2 sans-serif db dib-ns white" "textcolor" "white") }}
+           {{ partial "books/buylinks-external.html" (dict "context" . "buylinkClasses" "b--mid-gray f5 link bg-animate hover-bg-near-black hover-white br2 ba ph3 pv2 mr1 mb2 db dib-ns mid-gray" "textcolor" "white") }}
           {{else}}
-          {{ partial "books/buylinks.html" (dict "context" . "buylinkClasses" "f5 link bg-animate hover-bg-near-black br2 ba ph3 pv2 mr1 mb2 db dib-ns white" "textcolor" "white") }}
+          {{ partial "books/buylinks.html" (dict "context" . "buylinkClasses" "b--mid-gray f5 link bg-animate hover-bg-near-black hover-white br2 ba ph3 pv2 mr1 mb2 db dib-ns mid-gray" "textcolor" "white") }}
           {{end}}
         </div>
       </div>
