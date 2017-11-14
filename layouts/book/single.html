@@ -14,7 +14,11 @@
           <div class="bb b--black-20 measure-wide mv4 nested-copy-line-height">
             {{ .Content }}
           </div>
-          {{ partial "books/buylinks" (dict "context" . "buylinkClasses" "ba bg-animate black br2 db dib-ns f5 hover-bg-near-black link mb2 mr1 ph3 pv2    hover-white" "textcolor" "black") }}
+          {{if .Params.buy_links_external}}
+           {{ partial "books/buylinks-external.html" (dict "context" . "buylinkClasses" "f6 link bg-animate hover-bg-near-black br2 ba ph3 pv2 mr1 mb2 sans-serif db dib-ns white" "textcolor" "white") }}
+          {{else}}
+          {{ partial "books/buylinks.html" (dict "context" . "buylinkClasses" "f5 link bg-animate hover-bg-near-black br2 ba ph3 pv2 mr1 mb2 db dib-ns white" "textcolor" "white") }}
+          {{end}}
         </div>
       </div>
 
