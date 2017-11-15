@@ -1,11 +1,11 @@
 {{ $currentPage := . }}
-{{ $.Scratch.Add "listlinkClasses" "f6 link color-inherit primary-color-darkTK white hover-white db brand-font  ma0 w-100 pv3 ph4" }}
+{{ $.Scratch.Add "listlinkClasses" "f6 link color-inherit primary-color-darkTK white hover-white dib db-l brand-font ma0 w-100 pv1 pv3-l ph2 ph4-l nowrap" }}
 
 <!-- TODO: Not getting ismenucurrent -->
 
-<ul class="list dib ph0 ma0 scrolling-touch tc">
+<ul class="list dib ph0 ma0 scrolling-touch tc-l">
   {{ range .Site.Menus.main }}
-    <li  class="tl-l dib ma0 hover-bg-black w-100{{ if .HasChildren }} dont-display-child-until-click{{end}}">
+    <li  class="tl-l dib ma0 hover-bg-black w-100-l{{ if .HasChildren }} dont-display-child-until-click{{end}}">
 
       {{ if .HasChildren }}
         <a href="#{{ .Name | urlize }}" class="ttu {{ $.Scratch.Get "listlinkClasses" }}{{if $currentPage.IsMenuCurrent   "main" . }} o-50{{end}}">
