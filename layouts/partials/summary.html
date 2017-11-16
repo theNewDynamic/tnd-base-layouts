@@ -1,13 +1,44 @@
-<div class="relative w-100 mb4 bg-inherit nested-copy-line-height">
+<div class="flex-l flex-wrapf relative w-100 mb4 bg-inherit nested-copy-line-height">
+  {{with .Params.images}}
+    <div class="w4 mr3 hide-child"> 
+      <img src="{{index . 0}}" class="img " />
+      {{with $.Params.image_credit}}
+        <span class="f7 child helvetica">{{.}}</span>
+      {{end}}
+    </div>
+  {{end}}
+
   <div class="mb3 color-inherit overflow-hidden">
-    <span class="f6 db">{{ humanize .Section }}</span>
-    <h1 class="f3 near-black">
+    <h1 class="f3 color-inherit mb2 mt1">
       <a href="{{ .URL }}" class="link black dim">
         {{ .Title | markdownify }}
       </a>
     </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      {{ .Summary  }}
+
+    {{if .Date}}
+      {{partial "time.html" (dict "context" . "show_time" false)}}
+    {{end}}
+
+    <div class="nested-links f5 lh-copy nested-copy-line-height measure-wide mv2">
+      {{with .Params.description}}
+        {{.}}
+      {{else}}
+        {{ .Summary  }}
+      {{end}}
     </div>
+
+    {{with .Params.link_to_original}}
+      <a href="{{.}}" class="accent-color-dark link dib dim v-btm"/>
+        {{with $.Params.where_published}}
+          <span class="f6 i">{{.}}</span>
+        {{end}}
+        {{partial "svg/link-external.html" (dict "size" "12")}}
+      </a>
+      {{else}}
+        {{with $.Params.where_published}}
+          <span class="f6 i">{{.}}</span>
+        {{end}}
+    {{end}}
+    
   </div>
 </div>
