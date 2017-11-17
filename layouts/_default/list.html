@@ -1,13 +1,13 @@
 {{ define "main" }}
 {{$section := .Site.GetPage "section" .Section}}
   <div class="mw8 center ph4 pt5">
-    <h1 class="f1 mb2">{{$section.Title}}</h1>
+    <h1 class="accent-color f1 mb2">{{$section.Title}}</h1>
     {{with $section.Params.description}}
       <p class="lh-copy">{{.}}</p>
     {{end}}
-    <section class="flex-ns flex-wrap justify-around pt5 min-vh-100">
+    <section class="pt5 min-vh-100">
       {{range .Paginator.Pages}}
-        <div class="relative w-100  mb4">
+        <div class="relative w-100 mb4">
           {{ partial "summary.html" . }}
         </div>
       {{ end }}
