@@ -6,9 +6,21 @@
     {{ .Title | markdownify }}
   </h1>
   <section class="nested-copy-line-height lh-copy f4 nested-links nested-imgTK mid-gray">
+  {{if .Date}}
+    {{partial "components/time.html" (dict "context" . "show_time" false)}}
+  {{end}}
     {{ with .Params.images }}
       <img src="{{index . 0 | absURL }}" class="fl mb2 mr3 mt2 mw5 shadow-5" alt="Image " />
     {{ end }}
+    {{with .Params.description}}
+      <p>{{.}}</p>
+    {{end}}
     {{ .Content }}
+    {{if .Params.venue}}
+      <div class="b--light-gray bt f6 mid-gray pt2 sans-serif">
+        {{- partial "events/venue.html" . -}}
+      </div>
+    {{end}}
+    {{partial "articles/link-to-original.html" (dict "item" .)}}
   </section>
 </article>

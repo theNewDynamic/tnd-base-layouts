@@ -1,44 +1,33 @@
 <div class="flex-l flex-wrap relative w-100 bg-inherit nested-copy-line-height">
-  {{with .Params.images}}
-    <div class="w4 mr3 hide-child"> 
-      <img src="{{index . 0}}" class="img " />
-      {{with $.Params.image_credit}}
-        <span class="f7 child helvetica">{{.}}</span>
+  {{if .item.Params.images}}
+    <div class="hide-child {{.classes_image | default "w5 mr3 nt2"}}">
+    <img src="{{index (.item.Params.images) 0}}" class="img" />
+      {{with .item.Params.image_credit}}
+        <span class="db f7 child helvetica">{{.}}</span>
       {{end}}
     </div>
   {{end}}
 
-  <div class="mb3 color-inherit overflow-hidden">
+  <div class="{{.classes_content | default "mb3 color-inherit overflow-hidden"}}">
     <h1 class="f3 color-inherit mb2 mt1">
-      <a href="{{ .URL }}" class="link black dim">
-        {{ .Title | markdownify }}
+      <a href="{{ .item.URL }}" class="link black dim">
+        {{ .item.Title | markdownify }}
       </a>
     </h1>
 
-    {{if .Date}}
-      {{partial "time.html" (dict "context" . "show_time" false)}}
+    {{if .item.Date}}
+      {{partial "components/time.html" (dict "context" .item "show_time" false)}}
     {{end}}
 
     <div class="nested-links f5 lh-copy nested-copy-line-height measure-wide mv2">
-      {{with .Params.description}}
+      {{with .item.Params.description}}
         {{.}}
       {{else}}
-        {{ .Summary  }}
+        {{ .item.Summary  }}
       {{end}}
     </div>
 
-    {{with .Params.link_to_original}}
-      <a href="{{.}}" class="accent-color-dark link dib dim v-btm"/>
-        {{with $.Params.where_published}}
-          <span class="f6 i">{{.}}</span>
-        {{end}}
-        {{partial "svg/link-external.html" (dict "size" "12")}}
-      </a>
-      {{else}}
-        {{with $.Params.where_published}}
-          <span class="f6 i">{{.}}</span>
-        {{end}}
-    {{end}}
+    {{partial "articles/link-to-original.html" .}}
 
   </div>
 </div>
