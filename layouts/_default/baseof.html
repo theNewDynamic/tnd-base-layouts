@@ -8,7 +8,7 @@
   <body class="{{ $.Param "styles.body_classes"  | default "bg-near-white sans-serif"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
     {{ block "header" . }}{{ partial "base/header.html" .}}{{ end }}
     <div class="content">
-      <main id="main" {{with $.Param "content_classes"}} class="{{.}}"{{end}}role="main">
+      <main id="main" {{with $.Param "styles.content_classes"}} class="{{.}}"{{end}}role="main">
         {{ block "hero" . }}{{ end }}
         {{ block "main" . }}{{ end }}
       </main>

@@ -1,10 +1,11 @@
 {{ define "main" }}
-  <div class="mw8 center">
+  <div class="mw8 center pt5">
     {{ $section := where .Data.Pages "Section" .Section }}
-    <section class="flex-ns flex-wrap justify-around mt5">
-      {{ range  $section }}
-        <div class="relative w-100  mb4 bg-white">
-          {{ partial "summary.html" . }}
+    <section class="flex-ns flex-wrap justify-around">
+
+      {{ range  $index, $e := .Paginator.Pages }}
+        <div class="relative w-100  mb4">
+          {{$index | add 1 }}{{.Title}}
         </div>
       {{ end }}
     </section>
