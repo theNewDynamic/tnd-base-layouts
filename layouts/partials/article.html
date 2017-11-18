@@ -2,18 +2,12 @@
   <h1 class="f1">
     {{ .Title | markdownify }}
   </h1>
-<<<<<<< HEAD
-  <section class="nested-copy-line-height lh-copy f4 nested-links nested-imgTK mid-gray measure-wide">
-    {{ if .Params.image }}
-      <img src="{{ .Params.image  }}" class="fl mb2 mr3 mt2 mw5 shadow-5" alt="Image from {{ .Title }}" />
-=======
   <section class="nested-copy-line-height lh-copy f4 nested-links nested-imgTK mid-gray">
   {{if .Date}}
     {{partial "components/time.html" (dict "context" . "show_time" false)}}
   {{end}}
     {{ with .Params.images }}
       <img src="{{index . 0 | absURL }}" class="fl mb2 mr3 mt2 mw5 shadow-5" alt="Image " />
->>>>>>> 86ebfc7e77b7f7b057dca84c696ecfa57099c2c0
     {{ end }}
     {{with .Params.description}}
       <p>{{. | markdownify}}</p>
