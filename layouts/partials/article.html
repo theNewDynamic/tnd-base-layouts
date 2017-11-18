@@ -13,7 +13,7 @@
       <img src="{{index . 0 | absURL }}" class="fl mb2 mr3 mt2 mw5 shadow-5" alt="Image " />
     {{ end }}
     {{with .Params.description}}
-      <p>{{.}}</p>
+      <p>{{. | markdownify}}</p>
     {{end}}
     {{ .Content }}
     {{if .Params.venue}}
