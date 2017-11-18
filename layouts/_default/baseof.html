@@ -5,10 +5,14 @@
     {{- partial "head/meta-and-links.html" . -}}
     {{- partial "head/additions.html" . -}}
   </head>
-  <body class="{{ $.Param "styles.body_classes"  | default "bg-near-white sans-serif"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
+  <body class="{{ $.Param "styles.body"  | default "bg-near-white sans-serif"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
     {{ block "header" . }}{{ partial "base/header.html" .}}{{ end }}
     <div class="content">
+<<<<<<< HEAD
       <main id="main" {{with $.Param "styles.content_classes"}} class="{{.}}"{{end}}role="main">
+=======
+      <main id="main" {{with $.Param "styles.content"}} class="{{.}}"{{end}}role="main">
+>>>>>>> 86ebfc7e77b7f7b057dca84c696ecfa57099c2c0
         {{ block "hero" . }}{{ end }}
         {{ block "main" . }}{{ end }}
       </main>

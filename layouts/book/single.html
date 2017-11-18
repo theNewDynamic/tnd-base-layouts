@@ -5,16 +5,16 @@
       {{- partial "books/header.html" . -}}
 
       <div class="flex-l flex-wrap">
-        <div class="fl pt2-l w-100 w-40-l">
+        <div class="fl pt4-l w-100 w-40-l">
           {{- partial "books/cover.html" . -}}
           {{- partial "books/meta-data.html" . -}}
         </div>
 
         <div class="mt0-ns mt4 w-100 w-60-l">
-          <div class="bb b--black-20 measure-wide mv4 nested-copy-line-height">
+          <div class="bb b--black-20 dark-gray measure-wide mv4 nested-copy-line-height">
             {{ .Content }}
           </div>
-          {{ partial "books/buylinks" (dict "context" . "buylinkClasses" "ba bg-animate black br2 db dib-ns f5 hover-bg-near-black link mb2 mr1 ph3 pv2    hover-white" "textcolor" "black") }}
+          {{ partial "books/buylinks.html" (dict "context" . "buylinkClasses" "b--mid-gray f5 link bg-animate hover-bg-near-black hover-white br2 ba ph3 pv2 mr1 mb2 db dib-ns mid-gray" "textcolor" "gray") }}
         </div>
       </div>
 
@@ -22,13 +22,10 @@
     </section>
 
 
-    <section class="center ph4 ph4-m w-80-l">
+    <section class="center pb6 ph4 ph4-m w-80-l">
       {{- partial "books/praise.html" (dict "count" 100 "context" . ) -}}
     </section>
 
-    <div class="tc mv5">
-    {{ partial "books/buylinks" (dict "context" . "buylinkClasses" "ba bg-animate black br2 db dib-ns f5 hover-bg-near-black link mb2 mr1 ph3 pv2    hover-white" "textcolor" "black") }}
-    </div>
 
   </main>
 {{ end }}

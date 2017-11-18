@@ -1,13 +1,33 @@
-<div class="relative w-100 mb4 bg-inherit nested-copy-line-height">
-  <div class="mb3 pa4 color-inherit overflow-hidden">
-    <span class="f6 db">{{ humanize .Section }}</span>
-    <h1 class="f3 near-black">
-      <a href="{{ .URL }}" class="link black dim">
-        {{ .Title }}
+<div class="flex-l flex-wrap relative w-100 bg-inherit nested-copy-line-height">
+  {{if .item.Params.images}}
+    <div class="hide-child {{.classes_image | default "w5 mr3 nt2"}}">
+    <img src="{{index (.item.Params.images) 0}}" class="img" />
+      {{with .item.Params.image_credit}}
+        <span class="db f7 child helvetica">{{.}}</span>
+      {{end}}
+    </div>
+  {{end}}
+
+  <div class="{{.classes_content | default "mb3 color-inherit overflow-hidden"}}">
+    <h1 class="f3 color-inherit mb2 mt1">
+      <a href="{{ .item.URL }}" class="link black dim">
+        {{ .item.Title | markdownify }}
       </a>
     </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      {{ .Summary  }}
+
+    {{if .item.Date}}
+      {{partial "components/time.html" (dict "context" .item "show_time" false)}}
+    {{end}}
+
+    <div class="nested-links f5 lh-copy nested-copy-line-height measure-wide mv2">
+      {{with .item.Params.description}}
+        {{.}}
+      {{else}}
+        {{ .item.Summary  }}
+      {{end}}
     </div>
+
+    {{partial "articles/link-to-original.html" .}}
+
   </div>
 </div>

@@ -1,4 +1,5 @@
 {{ define "main" }}
+<<<<<<< HEAD
   <div class="mw8 center pt5">
     {{ $section := where .Data.Pages "Section" .Section }}
     <section class="flex-ns flex-wrap justify-around">
@@ -6,9 +7,21 @@
       {{ range  $index, $e := .Paginator.Pages }}
         <div class="relative w-100  mb4">
           {{$index | add 1 }}{{.Title}}
+=======
+{{$section := .Site.GetPage "section" .Section}}
+  <div class="mw8 center ph4 pt5">
+    <h1 class="accent-color f1 mb2">{{$section.Title}}</h1>
+    {{with $section.Params.description}}
+      <p class="lh-copy">{{.}}</p>
+    {{end}}
+    <section class="pt5 min-vh-100">
+      {{range .Paginator.Pages}}
+        <div class="relative w-100 mb4">
+          {{ partial "summary.html" (dict "item" . )}}
+>>>>>>> 86ebfc7e77b7f7b057dca84c696ecfa57099c2c0
         </div>
       {{ end }}
     </section>
-  {{ template "_internal/pagination.html" . }}
+    {{ template "_internal/pagination.html" . }}
   </div>
 {{ end }}

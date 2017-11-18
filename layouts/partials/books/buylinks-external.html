@@ -1,0 +1,9 @@
+{{ $buylinkClasses := .buylinkClasses}}
+<div class="mt4-l smallprint-font {{ .textcolor }}">
+  <div class="f5 fw6 mb2">Order from these retailers</div>
+  {{ range $key, $value := .context.Params.buy_links_external }}
+    <a href="{{ $value}}" class="{{ $buylinkClasses }}">
+      {{ $key | humanize | title }}
+    </a>
+  {{ end }}
+</div>

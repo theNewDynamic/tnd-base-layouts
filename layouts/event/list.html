@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{$section := .Site.GetPage "section" .Section}}
+{{ $event := .Data.Pages.ByDate }}
+{{ $events := where $event ".Date.Unix" "ge" now.Unix }}
+{{ $events_past := where $event.Reverse ".Date.Unix" "<" now.Unix }}
+
+
+  <div class="mw8 center ph4 pt5">
+    <h1 class="accent-color f1 mb2">{{$section.Title}}</h1>
+    {{with $section.Params.description}}
+      <p class="lh-copy">{{.}}</p>
+    {{end}}
+    <section class="pt5 min-vh-100">
+      {{range $events}}
+        <div class="relative w-100 mb5">
+            {{.Render "item"}}
+        </div>
+      {{ end }}
+      {{if $events_past}}
+        {{$id := "events"}}
+        {{partial "components/show-hide-button.html" (dict "label" "Past Events" "id" $id)}}
+        <div class="hidden-{{$id}}">
+          {{range $events_past}}
+            <div class="relative w-100 mb5">
+                {{.Render "item"}}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </section>
+    {{ template "_internal/pagination.html" . }}
+  </div>
+{{ end }}
