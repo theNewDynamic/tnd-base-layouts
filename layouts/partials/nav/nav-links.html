@@ -1,5 +1,5 @@
 {{$currentPage := .}}
-{{$listlinkClasses := "f6 link color-inherit hover-gray dib db-l ma0 w-100-l pv3 ph4-l"}}
+{{$listlinkClasses := "f6 link color-inherit hover-white dib db-l ma0 w-100-l pv3 ph4-l"}}
 <!-- TODO: Not getting ismenucurrent -->
 
 <ul class="list dib ph0 ma0 flex flex-wrap scrolling-touch justify-center tc">
@@ -26,7 +26,7 @@
           {{ end }}
         </ul>
       {{ else }}
-        <a href="{{.URL}}" class="ttu {{ $listlinkClasses }}{{if $currentPage.IsMenuCurrent "main" . }} accent-color{{end}}">
+        <a href="{{.URL}}" class="ttu {{ $listlinkClasses }}{{if $currentPage.IsMenuCurrent "main" . }} green{{end}}">
           {{ .Name }}
         </a>
       {{end}}
