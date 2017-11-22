@@ -1,0 +1,11 @@
+{{ partial "components/time.html" (dict "context" . "show_time" false ) }}
+  <h3 class="mb1 mt1">
+    <a href="{{.URL}}" class="accent-color hover-black link">
+      {{.Title }}
+    </a>
+  </h3>
+  {{ with .Params.description }}
+    <div class="lh-copy">
+      {{ . | markdownify }}
+    </div>
+  {{ end }}
