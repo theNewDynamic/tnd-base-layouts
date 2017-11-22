@@ -21,9 +21,9 @@
 
     <div class="nested-links f5 lh-copy nested-copy-line-height measure-wide mv2">
       {{with .item.Params.description}}
-        {{.}}
+        {{. | markdownify}}
       {{else}}
-        {{ .item.Summary  }}
+        {{ .item.Content  | markdownify | safeHTML | truncate 200 }}
       {{end}}
     </div>
 

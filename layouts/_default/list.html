@@ -7,7 +7,7 @@
     {{end}}
     <section class="pt5 min-vh-100">
       {{range .Paginator.Pages}}
-        <div class="relative w-100 mb4">
+        <div class="relative w-100 mb5">
           {{ partial "summary.html" (dict "item" . )}}
         </div>
       {{ end }}
