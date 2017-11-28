@@ -1,0 +1,14 @@
+<section class="h-entry center cf mw7 pv2 pt3-l ph4">
+  <h2 class="f2 color-inherit">
+    {{ .Title | markdownify }}
+  </h2>
+  <section class="nested-copy-line-height lh-copy f4 nested-links nested-imgTK mid-gray">
+    {{ with .Params.images }}
+      <img src="{{index . 0 | absURL }}" class="fl mb2 mr3 mt2 mw5 shadow-5" alt="Image " />
+    {{ end }}
+    {{with .Params.description}}
+      <p>{{. | markdownify}}</p>
+    {{end}}
+    {{ .Content }}
+  </section>
+</section>
