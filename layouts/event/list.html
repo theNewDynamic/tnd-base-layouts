@@ -19,7 +19,7 @@
       {{if $events_past}}
         {{$id := "events"}}
         {{partial "components/show-hide-button.html" (dict "label" "Past Events" "id" $id)}}
-        <div class="hidden-{{$id}}">
+        <div class="hidden-{{$id}} mt5">
           {{range $events_past}}
             <div class="relative w-100 mb5">
                 {{.Render "item"}}
