@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  lang="{{ $.Site.LanguageCode | default "en" }}" class="no-js">
   <head>
-    <title>{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}</title>
+    <title>{{ with .Title }}{{ . }} | {{ end }} {{ .Site.Title }} </title>
     {{- partial "head/meta-and-links.html" . -}}
     {{- partial "head/additions.html" . -}}
   </head>
