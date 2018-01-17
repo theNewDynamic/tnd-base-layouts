@@ -6,7 +6,7 @@
     <h2 class="mt5">
       Praise for <i>{{ .context.Title }}</i>
     </h2>
-    {{ $count := .count }}
+    {{ $count := .count | default 1 }}
     {{ range first $count ($reviews_related) }}
       {{ .Render "fancy-quote" }}
     {{ end }}
