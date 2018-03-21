@@ -12,8 +12,8 @@
     {{end}}
     <section class="pt5 min-vh-100">
       {{range $events}}
-        <div class="relative w-100 mb5">
-            {{.Render "item"}}
+        <div class="relative w-100 mb5 f2 black">
+            {{.Render "item-summary"}}
         </div>
       {{ end }}
       {{if $events_past}}
@@ -21,8 +21,8 @@
         {{partial "components/show-hide-button.html" (dict "label" "Past Events" "id" $id)}}
         <div class="hidden-{{$id}} mt5">
           {{range $events_past}}
-            <div class="relative w-100 mb5">
-                {{.Render "item"}}
+            <div class="f3 relative w-100 mb5">
+                {{.Render "item-summary"}}
             </div>
           {{ end }}
         </div>
