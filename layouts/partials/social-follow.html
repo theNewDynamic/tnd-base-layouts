@@ -12,7 +12,8 @@
 {{ end }}
 {{ with .Site.Social.instagram }}
   <a href="https://instagram.com/{{ . }}" class="instagram dib hover-gray link-transition link mr2 pt0-l pt3 z-999" title="Instagram link">
-    {{ partial "svg/instagram.svg" (dict "size" $icon_size) }}
+    {{/* {{ partial "svg/instagram.svg" (dict "size" $icon_size) }} */}}
+    <img src="/icons/icon-instagram-official-50x.png" alt="" height="{{$icon_size}}">
   </a>
 {{ end }}
 {{ with .Site.Social.youtube }}
